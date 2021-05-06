@@ -23,11 +23,11 @@ class Buck < Formula
   end
 
   depends_on "ant@1.9"
-  depends_on "openjdk@8"
+  depends_on "openjdk@16"
 
   def install
     # First, bootstrap the build by building Buck with Apache Ant.
-    ENV["JAVA_HOME"] = Formula["openjdk@8"].opt_libexec/"openjdk.jdk/Contents/Home"
+    ENV["JAVA_HOME"] = Formula["openjdk@16"].opt_libexec/"openjdk.jdk/Contents/Home"
     ant_path = `"#{HOMEBREW_PREFIX}"/bin/brew --prefix ant@1.9`
     ant_1_9 = ant_path.strip + "/bin/ant"
     ohai "Bootstrapping buck with ant using " + ant_1_9
